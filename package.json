@@ -1,17 +1,17 @@
 {
-  "name": "fella_holder_scraper",
+  "name": "fella_mongo_indexer",
   "version": "1.0.0",
-  "description": "A small project to scrape NFT holder data and store it in mongodb",
-  "main": "runScraper.js",
+  "description": "Index JSON files into MongoDB using Mongoose",
+  "main": "index.js",
   "scripts": {
-    "start": "node getHolders.js"
+    "start": "node index.js",
+    "fixext": "node file_extension_fix.js"
   },
-  "author": "KingSimpa69",
+  "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.24.0",
-    "dotenv": "^16.3.1",
-    "ethers": "^6.7.1",
-    "mongoose": "^6.0.0"
+    "async": "^3.2.0",
+    "mongoose": "^5.13.12",
+    "path": "^0.12.7"
   }
 }
