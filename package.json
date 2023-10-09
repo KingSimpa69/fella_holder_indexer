@@ -1,0 +1,17 @@
+{
+  "name": "fella_holder_scraper",
+  "version": "1.0.0",
+  "description": "A small project to scrape NFT holder data and store it in mongodb",
+  "main": "runScraper.js",
+  "scripts": {
+    "start": "node getHolders.js"
+  },
+  "author": "KingSimpa69",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.7.1",
+    "mongoose": "^6.0.0"
+  }
+}
