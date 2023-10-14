@@ -1,4 +1,5 @@
-require('dotenv').config()
+const dotenv = require('dotenv');    
+dotenv.config({ path: __dirname + '/../.env' });
 const {ethers} = require('ethers');
 const mongoose = require('mongoose');
 const NFTHolderModel = require('./model'); 
