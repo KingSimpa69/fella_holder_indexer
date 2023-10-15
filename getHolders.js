@@ -1,10 +1,10 @@
-require('dotenv').config({ path: require('find-config')('.env') })
+const { ALECHEMY_API_KEY } = require("./settings.json")
 const {ethers} = require('ethers');
 const mongoose = require('mongoose');
 const NFTHolderModel = require('./model'); 
 const ABI = require('./abi.json');
 const contractAddress = '0x217Ec1aC929a17481446A76Ff9B95B9a64F298cF';
-const url = `https://base-mainnet.g.alchemy.com/v2/${process.env.ALECHEMY_API_KEY}`;
+const url = `https://base-mainnet.g.alchemy.com/v2/${ALECHEMY_API_KEY}`;
 const provider = new ethers.JsonRpcProvider(url)
 const contract = new ethers.Contract(contractAddress, ABI.basedfellas, provider);
 
@@ -12,7 +12,7 @@ const mongoUrl = 'mongodb://127.0.0.1:27017/based_fellas';
 
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB!');
     scrapeNFTHolders();
   })
   .catch((error) => {
@@ -23,8 +23,7 @@ async function scrapeNFTHolders() {
   try {
     const totalSupply = await contract.totalSupply();
     const totalSupplyNumber = Number(totalSupply);
-    console.log(totalSupplyNumber);
-
+    console.log("Chain query success! " + totalSupplyNumber + " total based fellas...");
     const batchSize = 25;
     const batchCount = Math.ceil(totalSupplyNumber / batchSize);
 
